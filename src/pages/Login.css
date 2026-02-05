@@ -112,7 +112,7 @@ body{
 }
 
 .link-text a {
-    color: #00bfff;
+    color: hsl(244, 100%, 50%);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;

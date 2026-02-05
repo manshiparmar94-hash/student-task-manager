@@ -21,7 +21,7 @@ const Register = () => {
     if (!formData.name.trim()) {
       newErrors.name = "Full name is  required.";
     } else if (formData.name.length <= 3) {
-      newErrors.name = "Minimum 3 characters required.";
+      newErrors.name = "Minimum 3 characters required.";   
     }
     if (!formData.email.trim()) {
       newErrors.email = "Email is required.";
@@ -139,7 +139,7 @@ const Register = () => {
         </form>
 
         {/*Link to Register page*/}
-        <p ClassName="link-text">
+        <p className="link-text">
           Already have an account?<Link to="/Login">Login here</Link>
         </p>
       </div>
