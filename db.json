@@ -1,20 +1,57 @@
 {
-    "tasks":[
-        {
-            "id":"1",
-            "title":"Welcome Task",
-            "description":"This is your task served from json-server",
-            "dueDate":"2025-09-31",
-            "completed":false,
-            "priority":"Medium"
-        },
-        {
-            "id":"2",
-            "title":"Welcome Task",
-            "description":"This is your task served from json-server",
-            "dueDate":"2025-09-31",
-            "completed":false,
-            "priority":"Medium"
-        }
-    ]
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Welcome Task",
+      "description": "This is your task served from json-server",
+      "dueDate": "2025-09-31",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "2",
+      "title": "Welcome Task",
+      "description": "This is your task served from json-server",
+      "dueDate": "2025-09-31",
+      "completed": false,
+      "priority": "Medium"
+    },
+    {
+      "id": "beaf",
+      "title": "manshi",
+      "description": "hello",
+      "dueDate": "2026-02-14",
+      "priority": "Medium",
+      "completed": false
+    },
+    {
+      "id": "c231",
+      "title": "manshi",
+      "description": "hyyy",
+      "dueDate": "2026-03-04",
+      "completed": false
+    },
+    {
+      "id": "a1e1",
+      "title": "manshi",
+      "description": "hyyy",
+      "dueDate": "2026-03-04",
+      "completed": false
+    },
+    {
+      "id": "4f3b",
+      "title": "mahek",
+      "description": "hello",
+      "dueDate": "2026-03-14",
+      "completed": false,
+      "priority": "Low"
+    },
+    {
+      "id": "43be",
+      "title": "mahek",
+      "description": "hello",
+      "dueDate": "2026-02-05",
+      "completed": false
+    }
+  ]
 }

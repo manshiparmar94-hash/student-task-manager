@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const TaskForm = () => {
+const TaskForm = ({addTask, updateTask, editingTask}) => {
   const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    date: "",
-    priority: "Medium",
+    // title: "",
+    // description: "",
+    // dueDate: "",
+    // priority: "Medium",
   });
 
   const [errors, setErrors] = useState({});
+
+  useEffect(()=>{
+    setFormData(editingTask)
+  },[editingTask])
 
   const handleInputChange = (e) => {
     setFormData({
@@ -33,12 +37,8 @@ const TaskForm = () => {
       errors.description = "Description is required.";
     }
 
-    if (!formData.date) {
-      errors.date = "Date is required.";
-    }
-
-    if (!formData.priority) {
-      errors.priority = "Priority is required.";
+    if (!formData.dueDate) {
+      errors.dueDate = "Date is required.";
     }
 
     setErrors(errors);
@@ -48,19 +48,31 @@ const TaskForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      alert("Task Added Successfully ✅");
-      console.log(formData);
+      if(editingTask){
+        updateTask(formData)
+      }
+      else{
+        addTask(formData)
+      }
+      //   addTask(formData)
+      // alert("Task Added Successfully ✅");
 
-      setFormData({
-        title: "",
-        description: "",
-        date: "",
-        priority: "",
-      });
-      setErrors({});
+      // setFormData({
+      //   title: "",
+      //   description: "",
+      //   dueDate: "",
+      //   priority: "",
+      // });
+      // setErrors({});
     }
   };
-
+  const resetForm = () => {
+    setFormData({
+        title: "",
+        dueDate: "",
+        priority: ""
+    })
+  }
   return (
     <div className="add-task-card">
       <h2 style={{ marginBottom: "15px" }}>Add New Task</h2>
@@ -72,7 +84,7 @@ const TaskForm = () => {
             type="text"
             placeholder="Task Title"
             name="title"
-            value={formData.title}
+            value={formData?.title}
             onChange={handleInputChange}
           />
           {errors.title && <span className="error-msg">{errors.title}</span>}
@@ -84,7 +96,7 @@ const TaskForm = () => {
             name="description"
             placeholder="Description"
             rows="3"
-            value={formData.description}
+            value={formData?.description}
             onChange={handleInputChange}
           />
           {errors.description && (
@@ -97,17 +109,17 @@ const TaskForm = () => {
           <div style={{ flex: 1 }}>
             <input
               type="date"
-              name="date"
-              value={formData.date}
+              name="dueDate"
+              value={formData?.dueDate}
               onChange={handleInputChange}
             />
-            {errors.date && <span className="error-msg">{errors.date}</span>}
+            {errors.dueDate && <span className="error-msg">{errors.dueDate}</span>}
           </div>
 
           <div style={{ flex: 1 }}>
             <select
               name="priority"
-              value={formData.priority}
+              value={formData?.priority}
               onChange={handleInputChange}
             >
               <option value="">Select Priority</option>
@@ -127,7 +139,7 @@ const TaskForm = () => {
           style={{ display: "flex", gap: "10px", marginTop: "10px" }}
         >
           <button type="submit" className="btn-primary" style={{ flex: 1 }}>
-            Add Task
+            {editingTask ? 'Update' : 'Add'} Task
           </button>
           <button
             type="reset"
@@ -137,7 +149,7 @@ const TaskForm = () => {
               setFormData({
                 title: "",
                 description: "",
-                date: "",
+                dueDate: "",
                 priority: "",
               })
             }
